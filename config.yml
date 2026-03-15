@@ -1,0 +1,10 @@
+os:
+  edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote {{filename}}"
+  editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote +{{line}} {{filename}}"
+  editInTerminal: false
+  openDirInEditor: false
+customCommands:
+  - key: "<c-a>"
+    description: "Generate AI commit message"
+    command: "aicommit2 -c -s -d && pbpaste > .git/LAZYGIT_PENDING_COMMIT"
+    context: "files"
