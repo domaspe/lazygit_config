@@ -2,7 +2,7 @@
 
 ## Setup
 
-Requires `XDG_CONFIG_HOME="$HOME/.config"` in your shell profile (macOS defaults to `~/Library/Application Support/lazygit/` otherwise).
+Requires `XDG_CONFIG_HOME` set to `$HOME/.config` in your shell profile (macOS defaults to `~/Library/Application Support/lazygit/` otherwise).
 
 ## Neovim integration
 
