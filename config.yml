@@ -7,5 +7,5 @@ customCommands:
   - key: "<c-a>"
     description: "Generate AI commit message"
     # command: "command: "aicommit2 -c -s -d && pbpaste > .git/LAZYGIT_PENDING_COMMIT"
-    command: "git diff --cached | claude -p 'Generate a concise git commit message for these staged changes. Output ONLY the commit message text, nothing else. Use conventional commit format (feat/fix/refactor/etc). Do not wrap in quotes or backticks.' | grep . | tee .git/LAZYGIT_PENDING_COMMIT | clip.exe"
+    command: "git diff --cached | claude -p 'Generate a concise git commit message for these staged changes. Output ONLY the commit message text, nothing else. Use conventional commit format (feat/fix/refactor/etc). Do not wrap in quotes or backticks.' | grep . | tee .git/LAZYGIT_PENDING_COMMIT"
     context: "files"
