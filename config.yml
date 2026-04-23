@@ -1,15 +1,13 @@
 git:
   pagers:
     - colorArg: always
-      # pager: delta --paging=never --side-by-side --light --syntax-theme OneHalfLight
-      pager: delta --paging=never --side-by-side --syntax-theme OneHalfDark
+      pager: delta --paging=never --light --syntax-theme OneHalfLight
     - colorArg: always
-      # pager: delta --paging=never --side-by-side --light --syntax-theme OneHalfLight
-      pager: delta --paging=never --side-by-side  --light --syntax-theme OneHalfLight
-    # - colorArg: always
-    #   pager: delta --paging=never --syntax-theme OneHalfLight
-    # - externalDiffCommand: difft --color=always
-    # - externalDiffCommand: difft --color=always --display inline
+      pager: delta --paging=never --side-by-side --light --syntax-theme OneHalfLight
+    - colorArg: always
+      pager: delta --paging=never --syntax-theme OneHalfDark
+    - colorArg: always
+      pager: delta --paging=never --side-by-side --syntax-theme OneHalfDark
 os:
   edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote {{filename}}"
   editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote +{{line}} {{filename}}"
@@ -19,9 +17,9 @@ customCommands:
   - key: "<c-a>"
     description: "Generate AI commit message"
     # command: "command: "aicommit2 -c -s -d && pbpaste > .git/LAZYGIT_PENDING_COMMIT"
-    command: "git diff --cached | claude --model sonnet -p 'Generate a concise git commit message for these staged changes. Output ONLY the commit message text, nothing else. Use conventional commit format (feat/fix/refactor/etc). Do not wrap in quotes or backticks.' | grep . | tee .git/LAZYGIT_PENDING_COMMIT"
+    command: "git diff --cached | claude --model opus --effort low -p 'Generate a concise git commit message for these staged changes. Output ONLY the commit message text, nothing else. Use conventional commit format (feat/fix/refactor/etc). Do not wrap in quotes or backticks.' | grep . | tee .git/LAZYGIT_PENDING_COMMIT"
     context: "files"
   - key: "<c-n>"
     description: "Suggest new branch name"
-    command: "git diff --cached | claude --model sonnet -p 'Based on these staged changes, suggest a single concise git branch name in kebab-case with a conventional prefix (e.g. feature/, fix/, refactor/, chore/, docs/). Output ONLY the branch name, nothing else.' | grep . | tee /dev/stderr | clip.exe"
+    command: "git diff --cached | claude --model opus --effort low -p 'Based on these staged changes, suggest a single concise git branch name in kebab-case with a conventional prefix (e.g. feature/, fix/, refactor/, chore/, docs/). Output ONLY the branch name, nothing else.' | grep . | tee /dev/stderr | clip.exe"
     context: "localBranches"
