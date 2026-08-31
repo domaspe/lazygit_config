@@ -4,13 +4,9 @@ git:
   diffContextSize: 50
   pagers:
     - colorArg: always
-      pager: delta --paging=never --light --syntax-theme OneHalfLight
+      pager: $HOME/.config/lazygit/delta-theme.sh --paging=never
     - colorArg: always
-      pager: delta --paging=never --side-by-side --light --syntax-theme OneHalfLight
-    - colorArg: always
-      pager: delta --paging=never --syntax-theme OneHalfDark
-    - colorArg: always
-      pager: delta --paging=never --side-by-side --syntax-theme OneHalfDark
+      pager: $HOME/.config/lazygit/delta-theme.sh --paging=never --side-by-side
 os:
   edit: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote {{filename}}"
   editAtLine: "nvim --server $NVIM --remote-send '<C-\\><C-n>:silent! close<CR>' && nvim --server $NVIM --remote +{{line}} {{filename}}"

@@ -1,7 +1,0 @@
-git:
-  autoRefresh: false
-  pagers:
-    - colorArg: always
-      pager: $HOME/.config/lazygit/delta-theme.sh --paging=never
-    - colorArg: always
-      pager: $HOME/.config/lazygit/delta-theme.sh --paging=never --side-by-side
